@@ -1,0 +1,297 @@
+/* Updated professional styles for Netty's Bed & Cafe
+   - Font: Poppins for headings, Inter for body (Google Fonts linked in index.html)
+   - Sticky header, refined spacing, accessible contrast
+   - Responsive layout improvements
+   - Lightbox styles included
+   - Added animations, FAB, back-to-top, and reveal on scroll
+*/
+
+:root{
+  --bg: #f6efe6; /* cream */
+  --accent: #6b4f35; /* coklat kopi */
+  --accent-600: #5a4030;
+  --dark: #2e1f18;
+  --muted: #8b7b6b;
+  --card: #fffaf6;
+  --glass: rgba(255,255,255,0.6);
+  --success: #25D366;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background:var(--bg);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  backdrop-filter: blur(4px);
+  background: linear-gradient(180deg, rgba(246,239,230,0.9), rgba(246,239,230,0.75));
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition:all .22s ease;
+}
+.site-header.shrink{padding-top:6px;padding-bottom:6px;box-shadow:0 8px 20px rgba(46,31,24,0.06)}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  color:var(--accent);
+  font-size:20px;
+}
+.logo img{height:40px;width:auto;border-radius:8px}
+
+.main-nav{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.main-nav a{
+  text-decoration:none;
+  color:var(--dark);
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:600;
+}
+.main-nav a:hover{background:var(--glass)}
+
+/* Hero */
+.hero{
+  padding:28px 0 42px;
+}
+.hero-media{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow: 0 8px 24px rgba(46,31,24,0.08);
+}
+.hero-media img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.03);
+  transition:transform 7s cubic-bezier(.2,.8,.2,1);
+}
+.hero-media:hover img{transform:scale(1)}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-align:center;
+  padding:28px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.36));
+}
+.hero-content h1{ 
+  margin:0 0 6px;
+  font-size:34px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  letter-spacing:0.6px;
+  transform:translateY(6px);
+  opacity:0;
+  transition:transform .6s ease,opacity .6s ease;
+}
+.hero-content .subtitle{
+  margin:0 0 14px;
+  font-size:16px;
+  color:rgba(255,255,255,0.92);
+  transform:translateY(6px);
+  opacity:0;
+  transition:transform .7s ease .08s,opacity .7s ease .08s;
+}
+.hero-content .hero-note{font-size:13px;margin-top:8px;color:rgba(255,255,255,0.85);opacity:0;transform:translateY(6px);transition:transform .7s ease .16s,opacity .7s ease .16s}
+.hero-content.is-visible h1, .hero-content.is-visible .subtitle, .hero-content.is-visible .hero-note{transform:none;opacity:1}
+.hero-cta{display:flex;gap:12px;justify-content:center}
+
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  transition:all .15s ease;
+}
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+  box-shadow: 0 6px 14px rgba(107,79,53,0.18);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(107,79,53,0.18)}
+
+.btn-secondary{
+  background:transparent;
+  border:2px solid rgba(255,255,255,0.9);
+  color:#fff;
+}
+.btn-whatsapp{background:var(--success);color:#fff}
+
+/* Animated CTA primary */
+.btn-animated{
+  position:relative;overflow:hidden;
+}
+.btn-animated::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06));transform:translateX(-110%);transition:transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.btn-animated:hover::after{transform:translateX(110%)}
+
+/* Main cards */
+main{padding:18px 0}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  margin:20px 0;
+  box-shadow: 0 6px 18px rgba(46,31,24,0.04);
+}
+.card h2{margin-top:0;font-family:'Poppins', sans-serif;color:var(--accent-600)}
+
+/* Reveal on scroll */
+[data-reveal]{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
+[data-reveal].reveal{opacity:1;transform:none}
+
+/* Reviews */
+.reviews-summary{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.rating-big{
+  font-size:40px;
+  font-weight:800;
+  color:var(--accent-600);
+}
+.rating-stars{display:flex;align-items:center;gap:8px}
+.stars{color:#f3c04d;font-size:18px}
+.reviews-breakdown{flex:1;min-width:220px}
+.break-row{display:flex;align-items:center;gap:8px;margin:8px 0}
+.bar-bg{background:#eee;height:8px;border-radius:8px;flex:1;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent);border-radius:8px}
+.review-chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chip{background:#fff;padding:6px 10px;border-radius:20px;border:1px solid rgba(0,0,0,0.06);font-weight:600;color:var(--muted);cursor:pointer}
+
+.review-list{margin-top:12px}
+.review-item{display:flex;gap:12px;padding:12px;border-radius:10px;background:#fff;margin-bottom:12px;border:1px solid rgba(0,0,0,0.03)}
+.review-avatar{width:54px;height:54px;border-radius:50%;background:#ddd;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+.review-body{flex:1}
+.review-meta{display:flex;align-items:center;gap:8px;color:var(--muted);font-weight:600}
+.review-text{margin-top:8px;white-space:pre-wrap}
+.review-photos{display:flex;gap:8px;margin-top:8px}
+.review-photos img{width:110px;height:80px;object-fit:cover;border-radius:8px;cursor:pointer}
+
+/* Gallery */
+.gallery .grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.gallery .grid img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  cursor:pointer;
+  transition:transform .28s ease,box-shadow .28s ease;
+}
+.gallery .grid img:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(46,31,24,0.12)}
+
+/* Lightbox styles */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease;
+  z-index:2000;
+}
+#lightbox.active{opacity:1;pointer-events:auto}
+.lightbox-inner{max-width:90%;max-height:90%;position:relative;display:flex;flex-direction:column;gap:12px}
+.lightbox-image{max-width:100%;max-height:78vh;border-radius:10px;object-fit:contain}
+.lightbox-caption{color:#fff;text-align:center}
+.lightbox-controls{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+.lb-btn{background:rgba(0,0,0,0.35);border:0;color:#fff;padding:10px;border-radius:50%;pointer-events:auto;cursor:pointer}
+.lb-close{position:absolute;top:-40px;right:0;background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:8px;border-radius:8px}
+
+/* Location */
+.location .map{
+  margin-top:12px;
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.location iframe{width:100%;height:260px;border:0;display:block}
+
+/* CTA */
+.cta{display:flex;flex-direction:column;align-items:center;gap:12px}
+
+/* Floating action button (FAB) */
+.fab{position:fixed;right:20px;bottom:20px;z-index:1200;display:flex;flex-direction:column;align-items:center;gap:8px}
+.fab-main{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;border:0;font-size:22px;cursor:pointer;box-shadow:0 8px 20px rgba(46,31,24,0.18);display:flex;align-items:center;justify-content:center}
+.fab-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.fab-actions.open{opacity:1;transform:none;pointer-events:auto}
+.fab-action{background:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--accent-600);font-weight:700;border:1px solid rgba(0,0,0,0.04)}
+
+/* Back to top */
+#back-to-top{position:fixed;right:20px;bottom:96px;width:44px;height:44px;border-radius:8px;border:0;background:rgba(0,0,0,0.06);display:none;align-items:center;justify-content:center;cursor:pointer}
+#back-to-top.show{display:flex}
+
+/* Footer */
+.site-footer{
+  padding:18px 0 36px;
+  margin-top:26px;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--muted);
+}
+.footer-inner .socials a{margin-right:8px;color:var(--accent-600);text-decoration:none}
+
+/* Small helpers */
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.price-inline{float:right;color:var(--accent-600);font-weight:800}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-media img{height:320px}
+  .reviews-summary{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:700px){
+  .header-inner{flex-direction:column;gap:8px}
+  .main-nav{flex-wrap:wrap;justify-content:center}
+  .gallery .grid{grid-template-columns:repeat(2,1fr)}
+  .hero-content h1{font-size:26px}
+  .hero-media img{height:240px}
+  .footer-inner{flex-direction:column;gap:8px}
+  .price-inline{float:none;display:inline-block;margin-left:8px}
+  .fab{right:12px;bottom:12px}
+}
