@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netty's Bed & Cafe</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Ubah logo di atas website ke file logo yang disiapkan (assets/images/logo.PNG) -->
+      <div class="logo">
+        <img src="assets/images/logo.PNG" alt="Netty's Logo" style="height:48px;vertical-align:middle;margin-right:8px"> NETTY'S
+      </div>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-media">
+      <!-- pastikan file hero sesuai (sistem case-sensitive) -->
+      <img src="assets/images/hero.JPG" alt="Netty's Bed & Cafe - hero image">
+      <div class="hero-overlay">
+        <div class="hero-content" data-reveal>
+          <h1 class="hero-title">NETTY'S BED & CAFE</h1>
+          <p class="subtitle">Cafe nyaman untuk nongkrong &amp; santai</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-animated" href="#menu">Lihat Menu</a>
+            <a class="btn btn-secondary" href="#contact">Reservasi</a>
+          </div>
+          <div class="hero-note" aria-hidden="true">Gratis wifi • Spot foto • Stopkontak</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="about" class="card" data-reveal>
+      <h2>ABOUT CAFE</h2>
+      <p>Netty's Bed &amp; Cafe adalah tempat nongkrong
+      dengan suasana nyaman dan santai di Bogor.
+      Cocok untuk bekerja, bersantai, atau
+      berkumpul bersama teman.</p>
+    </section>
+
+    <section id="gallery" class="card gallery" data-reveal>
+      <h2>GALLERY</h2>
+      <div class="grid">
+        <img src="assets/images/cafe1.jpg" alt="foto cafe" data-large="assets/images/cafe1.jpg">
+        <img src="assets/images/drink.jpg" alt="foto minuman" data-large="assets/images/drink.jpg">
+        <img src="assets/images/spot.PNG" alt="foto tempat" data-large="assets/images/spot.PNG">
+        <img src="assets/images/food.jpg" alt="foto makanan" data-large="assets/images/food.jpg">
+      </div>
+      <p class="muted small">Klik untuk melihat gambar lebih besar</p>
+    </section>
+
+    <!-- BAGIAN MENU: ditambahkan foto menu yang sudah disiapkan beserta nama dan harga -->
+    <section id="menu" class="card menu-fav" data-reveal>
+      <h2>MENU FAVORIT</h2>
+
+      <!-- Grid foto menu -->
+      <div class="menu-grid">
+        <!-- Item 1 -->
+        <figure class="menu-item">
+          <img src="assets/images/menu1.jpg" alt="Ice Coffee - Menu 1">
+          <figcaption>
+            <div class="menu-name">Ice Coffee</div>
+            <div class="menu-price">Rp 30.000</div>
+          </figcaption>
+        </figure>
+
+        <!-- Item 2 -->
+        <figure class="menu-item">
+          <img src="assets/images/menu2.jpg" alt="Ice Tea - Menu 2">
+          <figcaption>
+            <div class="menu-name">Ice Tea</div>
+            <div class="menu-price">Rp 25.000</div>
+          </figcaption>
+        </figure>
+
+        <!-- Item 3 (file name mengandung spasi: "menu 4.jpg") -->
+        <figure class="menu-item">
+          <img src="assets/images/menu 4.jpg" alt="Snack - Menu 4">
+          <figcaption>
+            <div class="menu-name">Snack</div>
+            <div class="menu-price">Rp 20.000</div>
+          </figcaption>
+        </figure>
+
+        <!-- Item 4 -->
+        <figure class="menu-item">
+          <img src="assets/images/menu 5.jpg" alt="Dessert - Menu 5">
+          <figcaption>
+            <div class="menu-name">Dessert</div>
+            <div class="menu-price">Rp 35.000</div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Tetap sediakan daftar singkat sebagai fallback/SEO -->
+      <ul class="menu-list">
+        <li>☕ Ice Coffee <span class="price-inline">Rp 30.000</span></li>
+        <li>🥤 Ice Tea <span class="price-inline">Rp 25.000</span></li>
+        <li>🍟 Snack <span class="price-inline">Rp 20.000</span></li>
+        <li>🍰 Dessert <span class="price-inline">Rp 35.000</span></li>
+      </ul>
+      <p class="price">Harga Rp 25k – Rp 50k</p>
+    </section>
+
+    <section id="facilities" class="card" data-reveal>
+      <h2>FASILITAS</h2>
+      <ul>
+        <li>📶 Wifi</li>
+        <li>🔌 Stop kontak</li>
+        <li>🌿 Area outdoor</li>
+        <li>📷 Spot foto instagramable</li>
+      </ul>
+    </section>
+
+    <section id="reviews" class="card" data-reveal>
+      <h2>ULASAN (<span id="reviews-count">59</span>)</h2>
+      <div class="reviews-summary">
+        <div class="rating">
+          <div class="rating-big" id="rating-value">4,7</div>
+          <div class="rating-stars stars">★★★★★</div>
+          <div class="muted">59 ulasan</div>
+        </div>
+        <div class="reviews-breakdown">
+          <div class="break-row"><div style="width:36px">5</div><div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div><div style="width:40px;text-align:right">78%</div></div>
+          <div class="break-row"><div style="width:36px">4</div><div class="bar-bg"><div class="bar-fill" style="width:12%"></div></div><div style="width:40px;text-align:right">12%</div></div>
+          <div class="break-row"><div style="width:36px">3</div><div class="bar-bg"><div class="bar-fill" style="width:4%"></div></div><div style="width:40px;text-align:right">4%</div></div>
+          <div class="break-row"><div style="width:36px">2</div><div class="bar-bg"><div class="bar-fill" style="width:2%"></div></div><div style="width:40px;text-align:right">2%</div></div>
+          <div class="break-row"><div style="width:36px">1</div><div class="bar-bg"><div class="bar-fill" style="width:4%"></div></div><div style="width:40px;text-align:right">4%</div></div>
+        </div>
+        <div class="review-actions">
+          <div class="review-chips">
+            <button class="chip">Semua</button>
+            <button class="chip">keluarga</button>
+            <button class="chip">karaoke</button>
+          </div>
+          <a class="btn btn-secondary" href="#" id="write-review">Tulis ulasan</a>
+        </div>
+      </div>
+
+      <div class="review-list">
+        <div class="review-item">
+          <div class="review-avatar"><img src="assets/images/avatar1.jpg" alt="Ujang" style="width:54px;height:54px;border-radius:50%"></div>
+          <div class="review-body">
+            <div class="review-meta"><strong>Ujang Septian</strong> · <span>4 tahun lalu</span> · <span class="stars">★★★★★</span></div>
+            <div class="review-text">TEMPAT NYA SANGAT BAGUS , BERSIH , DAN PELAYANAN NYA CUKUP BAIK DAN SABAR ... SEMOGA SUKSES DAN MAJU TERUS.</div>
+            <div class="review-photos">
+              <img src="assets/images/rev1.jpg" alt="rev photo 1">
+              <img src="assets/images/rev2.jpg" alt="rev photo 2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Contoh ulasan tambahan -->
+        <div class="review-item">
+          <div class="review-avatar">A</div>
+          <div class="review-body">
+            <div class="review-meta"><strong>Sri</strong> · <span>1 tahun lalu</span> · <span class="stars">★★★★☆</span></div>
+            <div class="review-text">Minumannya enak dan tempatnya cozy. Harga sesuai. Tempat parkir agak sempit.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="location" class="card location" data-reveal>
+      <h2>LOKASI</h2>
+      <p>Alamat:<br>Jl. Arco Raya No.16<br>Tajur Halang, Bogor</p>
+      <div class="map">
+        <!-- Ganti src iframe jika ingin koordinat spesifik -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7923.123456789!2d106.XXXXX!3d-6.XXXXX!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNetty's%20Bed%20%26%20Cafe!5e0!3m2!1sid!2sid!4v0000000000000" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <a class="btn btn-primary" href="https://www.google.com/maps/place/Netty's+Bed+%26+Cafe" target="_blank">Buka di Google Maps</a>
+    </section>
+
+    <section id="cta" class="card cta" data-reveal>
+      <h2>Ayo Nongkrong di Netty's Cafe</h2>
+      <a class="btn btn-whatsapp" href="https://wa.me/6281234567890" target="_blank">Hubungi WhatsApp</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="socials">
+        <a href="#">Instagram</a> | <a href="#">WhatsApp</a> | <a href="#">Email</a>
+      </div>
+      <div class="info">Jl. Arco Raya No.16, Tajur Halang, Bogor | Jam Buka: 08:00 - 22:00</div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA / FAB -->
+  <div class="fab" aria-hidden="false">
+    <button class="fab-main" id="fab-toggle" aria-label="Buka menu cepat">☕</button>
+    <div class="fab-actions" id="fab-actions" aria-hidden="true">
+      <a class="fab-action" href="https://wa.me/6281234567890" target="_blank" aria-label="Chat WhatsApp">WhatsApp</a>
+      <a class="fab-action" href="#menu" aria-label="Lihat menu">Menu</a>
+      <a class="fab-action" href="#location" aria-label="Lihat lokasi">Lokasi</a>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
+
+  <!-- Lightbox (dibutuhkan oleh assets/js/main.js) -->
+  <div id="lightbox" role="dialog" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button id="lightbox-close" class="lb-close" aria-label="Tutup">✕</button>
+      <img id="lightbox-img" class="lightbox-image" src="" alt="">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div class="lightbox-controls">
+        <button id="lightbox-prev" class="lb-btn" aria-label="Sebelumnya">‹</button>
+        <button id="lightbox-next" class="lb-btn" aria-label="Berikutnya">›</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <p class="credit-note" style="display:none">Dibuat oleh jacky the code bender (Gravicode Studios). Jika membantu, traktir pulsa: https://studios.gravicode.com/products/budax</p>
+</body>
+</html>
